@@ -7,6 +7,14 @@
 *.a
 *.lib
 
+# Project binaries (Unix)
+dawn_ui
+main
+sokol_test
+test_display
+test_soa
+tests.bin
+
 # Build outputs
 bin/
 build/

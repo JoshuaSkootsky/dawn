@@ -190,9 +190,26 @@ When you see "Mamenament Standings" (overlapping text) or missing rectangles:
 4. **Fix in unit test**: Add regression test to `tests/layout_test.odin`
 5. **Verify fix**: Run unit tests + debug mode again
 
+## Project Structure
+
+```
+dawn/
+├── main.odin              # Demo application (Tournament Standings UI)
+├── odinui/                # Core UI framework package
+│   ├── odinui.odin       # Layout system, widgets, data structures
+│   └── backend_sokol.odin # Sokol graphics backend (rendering)
+├── tests/                 # Unit tests
+│   └── layout_test.odin  # Headless layout tests
+├── vendor/
+│   └── sokol/            # Sokol graphics bindings
+└── README.md
+```
+
 ## Files
 
-- `odinui/` - Core UI framework
-- `main.odin` - Demo application
-- `test_*.odin` - Test harnesses
-- `vendor/sokol/` - Sokol bindings
+- `odinui/` - Core UI framework (package with modular backend)
+  - `odinui.odin` - Widgets, layout, command buffer, dirty tracking
+  - `backend_sokol.odin` - Sokol-specific rendering, shaders, text
+- `main.odin` - Demo application showing Tournament Standings
+- `tests/` - Unit tests for layout logic (headless, no GPU)
+- `vendor/sokol/` - Sokol graphics library bindings
